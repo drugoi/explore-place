@@ -1,29 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8" />
-	<title>Explore World with Instagram</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Изучи мир с помощью Instagram</title>
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0" />
 	
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.min.css" />
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7oqdd_JhmrpoSwZCaAHocW20pi0JDSMk"></script>
+	<script src="js/app.min.js"></script>
 </head>
 <body>
 	
 	<div class="menu">
-			<h1 class="menu__title">Explore World</h1>
+			<h1 class="menu__title">Изучи мир</h1>
 			<form class="search">
-					<input type="text" class="search__input" autocomplete="on" data=name="широта" name="lat" placeholder="Широта, например: 43.267543" />
-					<input type="text" class="search__input" autocomplete="on" data=name="долгота" name="lng" placeholder="Долгота, например: 76.920075" />
+					<input type="text" class="search__input" autocomplete="on" data-name="широта" name="lat" placeholder="Широта, например: 43.267543" />
+					<input type="text" class="search__input" autocomplete="on" data-name="долгота" name="lng" placeholder="Долгота, например: 76.920075" />
 				<button class="search__submit">Обновить</button>
 			</form>
+			<div class="map" id="map-canvas"></div>
 	</div>
 
 	
 	<div class="container"></div>
-	
-  
-  
-	<script src="js/app.min.js"></script>
 </body>
 </html>

@@ -38,6 +38,11 @@
 	cursor: pointer;
 	transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
 	user-select: none;
+	
+	&._danger {
+		background-color: #E74C3C;
+	}
+	
 	&:hover {
 		border-color: #415B76;
 		background-color: #415B76;
