@@ -5,11 +5,8 @@
 	<title>Изучи мир с помощью Instagram</title>
 	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0" />
 	
-	<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.min.css" />
-	
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7oqdd_JhmrpoSwZCaAHocW20pi0JDSMk"></script>
-	<script src="js/app.min.js"></script>
 </head>
 <body>
 	
@@ -21,9 +18,26 @@
 				<button class="search__submit">Обновить</button>
 			</form>
 			<div class="map" id="map-canvas"></div>
+			<div class="menu__share social-likes social-likes_single" data-counters="no" data-single-title="Поделиться">
+				<div class="facebook" title="Поделиться ссылкой на Фейсбуке">Facebook</div>
+				<div class="twitter" data-via="bayevn" data-related="bayevn" title="Поделиться ссылкой в Твиттере">Twitter</div>
+				<div class="mailru" title="Поделиться ссылкой в Моём мире">Мой мир</div>
+				<div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
+				<div class="odnoklassniki" title="Поделиться ссылкой в Одноклассниках">Одноклассники</div>
+				<div class="plusone" title="Поделиться ссылкой в Гугл-плюсе">Google+</div>
+			</div>
 	</div>
-
-	
 	<div class="container"></div>
+	
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-15665299-27', 'auto');
+	  ga('send', 'pageview');
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7oqdd_JhmrpoSwZCaAHocW20pi0JDSMk"></script>
+	<script src="js/app.min.js"></script>
 </body>
 </html>

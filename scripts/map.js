@@ -12,9 +12,6 @@ jQuery(function($) {
 			}
 		});
 	}
-	function updateMarkerStatus(str) {
-		console.log(str);
-	}
 	function updateMarkerPosition(latLng) {
 		$('[name="lat"]').val(latLng.lat());
 		$('[name="lng"]').val(latLng.lng());
@@ -25,7 +22,7 @@ jQuery(function($) {
 		mapOptions.zoom = 16;
 		var latLng = mapOptions.center;
 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-		var marker = new google.maps.Marker({
+		marker = new google.maps.Marker({
 			position: mapOptions.center,
 			title: 'Point',
 			map: map,
@@ -38,8 +35,11 @@ jQuery(function($) {
 			updateMarkerPosition(marker.getPosition());
 		});
 		google.maps.event.addListener(marker, 'dragend', function() {
-			updateMarkerStatus('Drag ended');
-			geocodePosition(marker.getPosition());
+			//geocodePosition(marker.getPosition());
+		});
+		google.maps.event.addListener(map, 'click', function(event) {
+			 updateMarkerPosition(event.latLng);
+			 marker.setPosition(event.latLng);
 		});
 	}
 	// init map 

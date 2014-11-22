@@ -12,6 +12,7 @@ var mapOptions = {
 	},
 	scaleControl: true
 };
+var marker;
 var helpers = {
 	getParams: function(paramName) {
 		paramName = paramName.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -43,7 +44,7 @@ jQuery(function($) {
 		},
 		renderPhotos: function(api_data) {
 			$.each(api_data.data, function() {
-				$(API_CONTAINER).append('<a target="_blank" href="' + this.link + '"><img class="container__image" src="' + this.images.standard_resolution.url + '"/></a>');
+				$(API_CONTAINER).append('<div class="container__item"><a target="_blank" href="' + this.link + '"><img class="image" src="' + this.images.standard_resolution.url + '"/></a><div class="container__image-info"><a target="_blank" class="container__image-info__name" href="http://instagram.com/' + this.user.username + '">' + this.user.username + '</a></div></div>');
 			});
 			$('.search__submit').removeClass('_danger');
 		},
@@ -55,19 +56,22 @@ jQuery(function($) {
 			$(API_CONTAINER).empty();
 			updateInfo.updateContainer(search__terms[0], search__terms[1]);
 		}
-	}
+	};
 	if (helpers.getParams('lat') !== '') {
 		var lat = parseFloat(helpers.getParams('lat'));
 		var lng = parseFloat(helpers.getParams('lng'));
 		updateInfo.updateContainer(lat, lng);
 		mapOptions.center = new google.maps.LatLng(lat, lng);
-	} else if ('geolocation' in navigator) {
+	} /*
+else if ('geolocation' in navigator) {
 		helpers.getLocation();
-	} else {
+	}
+*/ else {
 		updateInfo.updateContainer(51.125957, 71.446396);
 		mapOptions.center = new google.maps.LatLng(51.125957, 71.446396);
 	}
 	$(API_CONTAINER).on('didLoadInstagram', function(event, response) {
+		//console.log(response);
 		updateInfo.renderPhotos(response);
 	});
 	// working with Instagram
@@ -91,6 +95,6 @@ jQuery(function($) {
 		var lat = parseFloat(helpers.getParams('lat'));
 		var lng = parseFloat(helpers.getParams('lng'));
 		$(API_CONTAINER).empty();
-		updateInfo.updateContainer(lat, lng);	
+		updateInfo.updateContainer(lat, lng);
 	});
 });
