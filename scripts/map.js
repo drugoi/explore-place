@@ -12,6 +12,7 @@ jQuery(function($) {
 			}
 		});
 	}
+
 	function updateMarkerPosition(latLng) {
 		$('[name="lat"]').val(latLng.lat());
 		$('[name="lng"]').val(latLng.lng());
@@ -34,12 +35,10 @@ jQuery(function($) {
 		google.maps.event.addListener(marker, 'drag', function() {
 			updateMarkerPosition(marker.getPosition());
 		});
-		google.maps.event.addListener(marker, 'dragend', function() {
-			//geocodePosition(marker.getPosition());
-		});
+		// Add clicking event listeners
 		google.maps.event.addListener(map, 'click', function(event) {
-			 updateMarkerPosition(event.latLng);
-			 marker.setPosition(event.latLng);
+			updateMarkerPosition(event.latLng);
+			marker.setPosition(event.latLng);
 		});
 	}
 	// init map 
