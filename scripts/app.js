@@ -62,11 +62,13 @@ jQuery(function($) {
 		var lng = parseFloat(helpers.getParams('lng'));
 		updateInfo.updateContainer(lat, lng);
 		mapOptions.center = new google.maps.LatLng(lat, lng);
-	} /*
+	}
+/*
 else if ('geolocation' in navigator) {
 		helpers.getLocation();
 	}
-*/ else {
+*/
+	else {
 		updateInfo.updateContainer(51.125957, 71.446396);
 		mapOptions.center = new google.maps.LatLng(51.125957, 71.446396);
 	}
